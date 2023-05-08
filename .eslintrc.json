@@ -1,6 +1,6 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "ts-standard"
+    "./node_modules/ts-standard/eslintrc.json"
   ]
 }
