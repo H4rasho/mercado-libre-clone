@@ -1,6 +1,6 @@
 import Image from "next/image";
 import banner from "../../public/banner.webp";
-import { ProductCard } from "@/components/ProductCard";
+import { ProductList } from "@/components/Product.List";
 
 export default function Index() {
   return (
@@ -11,14 +11,8 @@ export default function Index() {
           <h2 className="text-2xl py-4 text-left font-light text-gray-500">
             Basado en tu última Visita
           </h2>
-          <ul className="flex gap-2">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </ul>
+          {/* @ts-expect-error Server Component */}
+          <ProductList />
         </section>
       </main>
     </>
