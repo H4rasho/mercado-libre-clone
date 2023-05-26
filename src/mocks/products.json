@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Auriculares Inalámbricos Bluetooth",
+    "price": 37990,
+    "description": "Auriculares inalámbricos con tecnología Bluetooth, ideales para escuchar música y recibir llamadas sin necesidad de cables. Cuentan con una batería de larga duración y son compatibles con la mayoría de los dispositivos móviles.",
+    "stock": 100,
+    "stars": 4.5,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_779146-MLA53778959612_022023-O.webp"
+  },
+  {
+    "id": 2,
+    "title": "Smartwatch Fitness Tracker",
+    "price": 50000,
+    "description": "Un reloj inteligente con pantalla táctil a todo color, que te permite llevar un seguimiento de tus actividades físicas y monitorear tu salud. Incluye funciones como el conteo de pasos, la medición del ritmo cardíaco y el monitoreo del sueño.",
+    "stock": 50,
+    "stars": 4.3,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_809141-MLA69424970997_052023-O.webp"
+  },
+  {
+    "id": 3,
+    "title": "Cámara Deportiva 4K",
+    "price": 300000,
+    "description": "Una cámara de alta calidad, resistente al agua y diseñada para soportar condiciones extremas. Con resolución 4K y ángulo de visión amplio, te permite capturar imágenes y videos impresionantes de tus aventuras al aire libre.",
+    "stock": 30,
+    "stars": 4.7,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_659513-MLA45142012085_032021-O.webp"
+  },
+  {
+    "id": 4,
+    "title": "Juego de Sábanas de Algodón",
+    "price": 20000,
+    "description": "Un juego de sábanas suaves y cómodas, fabricadas en 100% algodón de alta calidad. Disponible en varios tamaños y colores, para adaptarse a cualquier estilo de decoración.",
+    "stock": 200,
+    "stars": 4.8,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_735970-MLC41328354062_042020-O.webp"
+  },
+  {
+    "id": 5,
+    "title": "Mochila para Portátil",
+    "price": 37999,
+    "description": "Una mochila resistente y funcional, diseñada para transportar y proteger tu portátil y otros dispositivos electrónicos. Incluye múltiples compartimentos y bolsillos para guardar tus accesorios y objetos personales.",
+    "stock": 80,
+    "stars": 4.4,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_680161-MLC54583913554_032023-W.webp"
+  }
+]

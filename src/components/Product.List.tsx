@@ -1,10 +1,9 @@
-import prisma from "@/core/db/client";
 import { ProductCard } from "./ProductCard";
+import products from "@/mocks/products.json";
 
 export async function ProductList() {
-  const products = await prisma.product.findMany();
   return (
-    <ul className="flex gap-2">
+    <ul className="flex gap-2 justify-between">
       {products.map((product) => {
         /* @ts-expect-error Server Component */
         return <ProductCard product={product} />;
