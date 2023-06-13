@@ -1,6 +1,9 @@
 import { Header } from "@/components/Header";
-import "./globals.css";
+import Image from "next/image";
 import { Montserrat } from "next/font/google";
+import "./globals.css";
+
+import banner from "../../public/banner.webp";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -20,7 +23,9 @@ export default function RootLayout({
         className={`${montserrat.className}  bg-gray-100 min-h-screen w-screen`}
       >
         <Header />
-        {children}
+        <main className="flex m-auto gap-y-4 flex-col max-w-[1200px] min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   );

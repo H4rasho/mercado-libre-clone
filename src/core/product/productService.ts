@@ -1,8 +1,10 @@
-import { Product } from "@prisma/client";
+import { Prisma, Product } from "@prisma/client";
 import prisma from "../db/client";
 
-export const createProduct = (product: Omit<Product, "id">) => {
-  return prisma.product.create({
-    data: product,
-  });
+export const createProduct = (data: Prisma.ProductCreateInput) => {
+  return prisma.product.create({ data });
+};
+
+export const getProducts = () => {
+  return prisma.product.findMany();
 };
