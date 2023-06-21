@@ -7,7 +7,7 @@ export async function ProductList() {
     <ul className="flex gap-2 justify-between">
       {products.map((product) => {
         /* @ts-expect-error Server Component */
-        return <ProductCard product={product} />;
+        return <ProductCard key={product.id} product={product} />;
       })}
     </ul>
   );

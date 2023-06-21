@@ -13,7 +13,7 @@ export function Nav() {
     <nav>
       <ul className="flex gap-4 text-sm">
         {navItems.map((item) => (
-          <p>{item.label}</p>
+          <p key={item.label}>{item.label}</p>
         ))}
       </ul>
     </nav>
