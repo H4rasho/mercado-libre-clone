@@ -10,7 +10,6 @@ export function ShoppingCarIcon() {
       strokeWidth="1"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="feather feather-shopping-cart"
     >
       <circle cx="9" cy="21" r="1"></circle>
       <circle cx="20" cy="21" r="1"></circle>

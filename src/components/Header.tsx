@@ -35,13 +35,13 @@ export function Header() {
           />
           <ul className="flex justify-end gap-4">
             <li>
-              <button>Crea tu Cuenta</button>
+              <a href="#">Crea tu Cuenta</a>
             </li>
             <li>
-              <button>Ingresa</button>
+              <a href="#">Ingresa</a>
             </li>
             <li>
-              <button>Mis Compras</button>
+              <a href="#">Mis Compras</a>
             </li>
             <li>
               <ShoppingCarIcon />
