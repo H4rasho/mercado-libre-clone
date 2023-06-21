@@ -1,6 +1,6 @@
 import Image from "next/image";
 import products from "@/mocks/products.json";
-import { ProductRating } from "@/components/ProductRating";
+import { ProductRating } from "@/app/product/components/ProductRating";
 
 export default function Page({ params }: { params: { id: string } }) {
   const { id } = params;

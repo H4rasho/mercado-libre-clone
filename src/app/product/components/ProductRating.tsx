@@ -1,4 +1,4 @@
-import { StarIcon } from "./icons/StarIcon";
+import { StarIcon } from "../../../components/icons/StarIcon";
 
 const MAX_RATING = 5;
 

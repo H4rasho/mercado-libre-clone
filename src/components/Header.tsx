@@ -3,7 +3,7 @@ import logo from "../../public/logo.png";
 import disneyPromo from "../../public/disney-promo.webp";
 import { LocationIcon } from "./icons/LocationIcon";
 import { Nav } from "./Nav";
-import { ShoppingCarIcon } from "./icons/shoppingCarIcon";
+import { ShoppingCarIcon } from "./icons/ShoppingCarIcon";
 
 export function Header() {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { DashboardForm } from "./form";
+import { DashboardForm } from "./DashboardFrom";
 import { Prisma } from "@prisma/client";
 
 export function DashboardManager() {

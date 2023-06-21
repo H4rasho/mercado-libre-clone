@@ -1,4 +1,4 @@
-import { createProduct } from "@/core/product/productService";
+import { createProduct } from "@/app/product/service/productService";
 
 export async function POST(request: Request) {
   try {

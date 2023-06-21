@@ -1,6 +1,6 @@
 import Image from "next/image";
 import banner from "../../public/banner.webp";
-import { ProductList } from "@/components/Product.List";
+import { ProductList } from "@/app/product/components/Product.List";
 import { PaymentPromoSection } from "@/components/PaymentPromoSection";
 
 export default function Index() {

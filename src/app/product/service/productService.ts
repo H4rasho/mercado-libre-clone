@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import prisma from "../db/client";
+import prisma from "@/lib/db/client";
 
 export const createProduct = (
   data: Prisma.ProductCreateInput,

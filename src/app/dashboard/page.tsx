@@ -1,4 +1,4 @@
-import { DashboardManager } from "./manager";
+import { DashboardManager } from "./components/DashboradManager";
 
 export default function Page() {
   return (

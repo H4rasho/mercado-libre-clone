@@ -1,4 +1,4 @@
-import { getProducts } from "@/core/product/productService";
+import { getProducts } from "@/app/product/service/productService";
 import { ProductCard } from "./ProductCard";
 
 export async function ProductList() {
