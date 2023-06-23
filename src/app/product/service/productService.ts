@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { Prisma, Product } from "@prisma/client";
 import prisma from "@/lib/db/client";
 
 export const createProduct = (
@@ -19,4 +19,12 @@ export const createProduct = (
 
 export const getProducts = () => {
   return prisma.product.findMany();
+};
+
+export const getProductById = (productId: Product["id"]) => {
+  return prisma.product.findUnique({
+    where: {
+      id: productId,
+    },
+  });
 };
