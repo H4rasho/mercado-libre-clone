@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ProductRating } from "@/app/product/components/ProductRating";
 import { getProductById } from "../service/productService";
+import { AddToCard } from "../components/AddToCar";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -33,9 +34,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               <button className="py-3 px-6 bg-[#3483fa] font-semibold text-sm text-white rounded-md">
                 Comprar ahora
               </button>
-              <button className="py-3 px-6 bg-[#E3EDFB] text-sm font-semibold rounded-md text-[#3483fa]">
-                Agregar al carrito
-              </button>
+              <AddToCard item={product} />
             </div>
           </div>
         </>
