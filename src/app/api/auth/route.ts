@@ -1,4 +1,11 @@
 export function GET(request: Request) {
-    console.log(request)
-    return new Response(JSON.stringify(request), { status: 201 });
+
+    // Obtiene el token de la request en los parametros
+    const url = new URL(request.url);
+    const code = url.searchParams.get('code');
+    console.log(url)
+
+    return new Response(JSON.stringify({
+        code,
+    }), { status: 201 });
 }
