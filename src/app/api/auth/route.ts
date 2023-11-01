@@ -30,10 +30,8 @@ export async function GET(request: Request) {
         })
         const data = await response.json();
 
-        return new Response(JSON.stringify({
-            code,
-            data
-        }), { status: 201 });
+        // Redirecciona al usuario a la pagina de inicio con el token y el refresh token y uid
+        return Response.redirect(`https://mercado-libre-clone-two.vercel.app/?token=${data?.access_token}&refresh_token=${data?.refresh_token}&uid=${data?.user_id}`, 301);
 
     }
     catch (err) {
