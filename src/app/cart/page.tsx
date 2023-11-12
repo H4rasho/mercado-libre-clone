@@ -1,5 +1,5 @@
-import { USER_ID } from "@/lib/db/constants";
-import { kv } from "@vercel/kv";
+import {USER_ID} from "@/lib/db/constants";
+import {kv} from "@vercel/kv";
 import Image from "next/image";
 
 export default async function Cart() {
@@ -57,7 +57,6 @@ export default async function Cart() {
               </li>
             );
           })}
-          awww
         </ul>
       </div>
       <div></div>

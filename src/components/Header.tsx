@@ -1,9 +1,11 @@
 import Image from "next/image";
+
 import logo from "../../public/logo.png";
 import disneyPromo from "../../public/disney-promo.webp";
 import { LocationIcon } from "./icons/LocationIcon";
 import { Nav } from "./Nav";
-import { ShoppingCarIcon } from "./icons/ShoppingIcon";
+import UserOptions from "./UserOptions";
+import { Search } from "./Search";
 
 export function Header() {
   return (
@@ -20,10 +22,7 @@ export function Header() {
           </button>
         </div>
         <div className="flex flex-col gap-4 w-full max-w-xl">
-          <input
-            className="py-2 px-4 w-full rounded-s font-light shadow-sm shadow-gray-300"
-            placeholder="Buscar productos, marcas y más..."
-          />
+          <Search />
           <Nav />
         </div>
         <div className="flex flex-col gap-4 font-normal">
@@ -33,20 +32,7 @@ export function Header() {
             height={39}
             alt="promo Mercado Libre x Disney Plus"
           />
-          <ul className="flex justify-end gap-4">
-            <li>
-              <a href="#">Crea tu Cuenta</a>
-            </li>
-            <li>
-              <a href="#">Ingresa</a>
-            </li>
-            <li>
-              <a href="#">Mis Compras</a>
-            </li>
-            <li>
-              <ShoppingCarIcon />
-            </li>
-          </ul>
+          <UserOptions />
         </div>
       </section>
     </header>

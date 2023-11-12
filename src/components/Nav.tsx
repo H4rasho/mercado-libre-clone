@@ -1,21 +1,21 @@
 const navItems = [
-  { label: "Categorías" },
-  { label: "Ofertas" },
-  { label: "Historia" },
-  { label: "Supermercado" },
-  { label: "Moda" },
-  { label: "Vender" },
-  { label: "Ayuda" },
-];
+  {label: 'Categorías'},
+  {label: 'Ofertas'},
+  {label: 'Historia'},
+  {label: 'Supermercado'},
+  {label: 'Moda'},
+  {label: 'Vender'},
+  {label: 'Ayuda'},
+]
 
 export function Nav() {
   return (
     <nav>
       <ul className="flex gap-4 text-sm">
-        {navItems.map((item) => (
+        {navItems.map(item => (
           <p key={item.label}>{item.label}</p>
         ))}
       </ul>
     </nav>
-  );
+  )
 }
