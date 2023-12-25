@@ -15,6 +15,7 @@ export default async function Page({
     <section className="max-w-4xl mx-auto">
       <SearchResults results={results.results} />
       <Pagination
+        query={searchParams.query}
         currentPage={results.info.currentPage}
         totalPages={results.info.totalPages}
       ></Pagination>
