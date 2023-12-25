@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { ProductRating } from "@/app/product/components/ProductRating";
-import { getProductById } from "../service/productService";
 import { AddToCard } from "../components/AddToCar";
+import { searchById } from "../service/search";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
-  const product = await getProductById(id);
+  const product = await searchById(id);
 
   return (
     <div className="bg-white flex justify-between p-4">
@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <h1 className="text-xl font-medium">{product.title}</h1>
             <ProductRating rating={Number(product.stars)} />
             <p className="text-3xl ">{`$ ${Number(
-              product.price
+              product.price,
             ).toLocaleString()}`}</p>
             <p>
               en

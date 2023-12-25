@@ -56,7 +56,7 @@ export interface Result {
   currency_id: string
   order_backend: number
   price: number
-  original_price: null
+  original_price: number | null
   sale_price: null
   sold_quantity: number
   available_quantity: number

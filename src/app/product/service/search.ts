@@ -1,26 +1,61 @@
-import { type SearchResponse } from "../types/api-response";
-import { type IProduct } from "../types/product";
+import {type SearchResponse} from '../types/api-response'
+import {SearchByIDResponse} from '../types/api-serachById-response'
+import {Search, type IProduct} from '../types/product'
 
-export async function search(query: string): Promise<IProduct[]> {
+const API_URL = 'https://api.mercadolibre.com'
+
+export async function search({
+  query,
+  page,
+}: {
+  query: string
+  page: number
+}): Promise<Search> {
   const response = await fetch(
-    `https://api.mercadolibre.com/sites/MLC/search?q=${query}&limit=5`,
-  );
-  const data = (await response.json()) as SearchResponse;
-  return data.results.map((result) => ({
+    `${API_URL}/sites/MLC/search?q=${query}&offset=${page}`
+  )
+  const data: SearchResponse = await response.json()
+  const products = data?.results.map(result => ({
     id: result.id,
     name: result.title,
     description: result.title,
     price: result.price,
-    originalPrice: Number(result.original_price),
     stock: 0,
-    sellerId: "1",
+    sellerId: '1',
     image: result.thumbnail,
-    stars: result.seller.seller_reputation.transactions.ratings.positive * 5,
+    stars: 0,
     title: result.title,
+    characteristics: [],
     seller: {
-      id: result.seller.id,
+      id: String(result.seller.id),
       name: result.seller.nickname,
     },
-    characteristics: [],
-  }));
+    originalPrice: 1,
+  }))
+
+  return {
+    info: {
+      currentPage: data.paging.offset,
+      totalPages: Math.ceil(data.paging.total / data.paging.limit),
+      totalResults: data.paging.total,
+    },
+    results: products || [],
+  }
+}
+
+export async function searchById(id: string): Promise<any> {
+  const response = await fetch(`${API_URL}/items/${id}`)
+  const data = (await response.json()) as SearchByIDResponse
+  return {
+    id: data.id,
+    name: data.title,
+    description: data.title,
+    price: data.price,
+    originalPrice: Number(data.original_price),
+    stock: 0,
+    sellerId: '1',
+    image: data.thumbnail,
+    stars: 4,
+    title: data.title,
+  }
 }

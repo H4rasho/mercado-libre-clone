@@ -1,11 +1,23 @@
-import { SearchResults } from "./components/SearchResults";
+import {search} from '../product/service/search'
+import {Pagination} from './components/Pagination'
+import {SearchResults} from './components/SearchResults'
 
-export default function Results({ params }: { params: { id: string } }) {
-  console.log({ id: params.id });
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: {query: string; page: number}
+}) {
+  const results = await search({
+    query: searchParams.query,
+    page: searchParams.page,
+  })
   return (
-    <>
-      <h1>Results</h1>
-      <SearchResults />
-    </>
-  );
+    <section className="max-w-4xl mx-auto">
+      <SearchResults results={results.results} />
+      <Pagination
+        currentPage={results.info.currentPage}
+        totalPages={results.info.totalPages}
+      ></Pagination>
+    </section>
+  )
 }

@@ -1,15 +1,16 @@
-"use client";
+'use client'
 
-import { useRouter } from "next/navigation";
+import {useRouter, useSearchParams} from 'next/navigation'
 
 export function Search() {
-  const router = useRouter();
+  const router = useRouter()
+  const params = useSearchParams()
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const [{ value }] = event.target;
-    router.push(`results/${value}`);
-  };
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const value = event.currentTarget.search.value
+    router.push(`/results?query=${value}`)
+  }
 
   return (
     <form onSubmit={onSubmit}>
@@ -19,5 +20,5 @@ export function Search() {
         placeholder="Buscar productos, marcas y más..."
       />
     </form>
-  );
+  )
 }
