@@ -12,9 +12,11 @@ export async function search({
   page: number
 }): Promise<Search> {
   const response = await fetch(
-    `${API_URL}/sites/MLC/search?q=${query}&offset=${page}`
+    `${API_URL}/sites/MLC/search?q=${query}&offset=${page ? page : 0}`
   )
+  if (!response.ok) throw new Error('Error fetching products')
   const data: SearchResponse = await response.json()
+
   const products = data?.results.map(result => ({
     id: result.id,
     name: result.title,

@@ -12,13 +12,15 @@ export default async function Page({
     page: searchParams.page,
   })
   return (
-    <section className="max-w-4xl mx-auto">
-      <SearchResults results={results.results} />
-      <Pagination
-        query={searchParams.query}
-        currentPage={results.info.currentPage}
-        totalPages={results.info.totalPages}
-      ></Pagination>
-    </section>
+    results.results.length > 0 && (
+      <section className="max-w-4xl mx-auto">
+        <SearchResults results={results.results} />
+        <Pagination
+          query={searchParams.query}
+          currentPage={results.info.currentPage}
+          totalPages={results.info.totalPages}
+        ></Pagination>
+      </section>
+    )
   )
 }
