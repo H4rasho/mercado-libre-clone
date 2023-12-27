@@ -9,6 +9,7 @@ export function AddToCard({ item }: { item: Product }) {
         method: "POST",
         body: JSON.stringify({
           userId: USER_ID,
+          quantity: 1,
           product: {
             id: item.id,
             title: item.title,

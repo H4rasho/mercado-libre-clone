@@ -1,11 +1,19 @@
 import {USER_ID} from "@/lib/db/constants";
 import {kv} from "@vercel/kv";
 import Image from "next/image";
+import {searchById} from "../product/service/search";
 
 export default async function Cart() {
-  const totalProducts = await kv.llen(USER_ID);
-  const rawCart = await kv.lrange(USER_ID, 0, totalProducts);
-  const cart = rawCart.map((product) => JSON.parse(JSON.stringify(product)));
+  const productsIds = await kv.hgetall(`cart-${USER_ID}`);
+
+  if (!productsIds) return <p>No hay productos en el carrito</p>;
+
+  const cart = [];
+  for (const [id, quantity] of Object.entries(productsIds)) {
+    const product = await searchById(id);
+    cart.push({ product, quantity });
+  }
+
 
   return (
     <section className="bg-white max-w-3xl rounded-sm">
