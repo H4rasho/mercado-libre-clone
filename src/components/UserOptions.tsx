@@ -1,30 +1,7 @@
-"use client";
-
-import {useSearchParams} from "next/navigation";
+import Link from "next/link";
 import {ShoppingCarIcon} from "./icons/ShoppingIcon";
-import {useEffect, useState} from "react";
 
 export default function UserOptions() {
-  const [user, setUser] = useState(null);
-  const searchParams = useSearchParams();
-  const uid = searchParams.get("uid");
-  const token = searchParams.get("token");
-
-  useEffect(() => {
-    if (uid && token) {
-      fetch(`/api/user?uid=${uid}&token=${token}`, {})
-        .then((res) => {
-          res.json().then((data) => {
-            console.log({data});
-            setUser(data);
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [uid, token]);
-
 
   return (
     <ul className="flex justify-end gap-4">
@@ -38,7 +15,9 @@ export default function UserOptions() {
         <a href="#">Mis Compras</a>
       </li>
       <li>
-        <ShoppingCarIcon />
+        <Link href="/cart">
+          <ShoppingCarIcon />
+        </Link>
       </li>
     </ul>
   );
