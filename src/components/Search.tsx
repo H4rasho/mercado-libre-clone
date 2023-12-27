@@ -4,11 +4,11 @@ import {useRouter, useSearchParams} from 'next/navigation'
 
 export function Search() {
   const router = useRouter()
-  const params = useSearchParams()
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const value = event.currentTarget.search.value
+    event.currentTarget.reset()
     router.push(`/results?query=${value}`)
   }
 
