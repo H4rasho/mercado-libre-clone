@@ -45,12 +45,12 @@ export async function search({
   }
 }
 
-export async function searchById(id: string): Promise<any> {
+export async function searchById(id: string): Promise<IProduct> {
   const response = await fetch(`${API_URL}/items/${id}`)
   const data = (await response.json()) as SearchByIDResponse
   return {
     id: data.id,
-    name: data.title,
+    title: data.title,
     description: data.title,
     price: data.price,
     originalPrice: Number(data.original_price),
@@ -58,6 +58,10 @@ export async function searchById(id: string): Promise<any> {
     sellerId: '1',
     image: data.thumbnail,
     stars: 4,
-    title: data.title,
+    seller: {
+      id: String(data.seller_id),
+      name: String(data.seller_id),
+    },
+    pictures: data.pictures.map(picture => picture.url),
   }
 }

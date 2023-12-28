@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { ProductRating } from "@/app/product/components/ProductRating";
 import { AddToCard } from "../components/AddToCar";
 import { searchById } from "../service/search";
@@ -11,9 +11,9 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div className="bg-white flex justify-between p-4">
       {product && (
         <>
-          <Image
+          <img
             className="aspect-square object-contain"
-            src={product.image}
+            src={product?.pictures?.at(0)}
             width={378}
             height={448}
             alt={product.description || product.title}

@@ -12,6 +12,7 @@ export interface IProduct {
     id: string;
     name: string;
   };
+  pictures?: string[];
 }
 
 export interface Search {
