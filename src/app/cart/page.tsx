@@ -1,6 +1,5 @@
 import {USER_ID} from "@/lib/db/constants";
 import {kv} from "@vercel/kv";
-import Image from "next/image";
 import {searchById} from "../product/service/search";
 
 export default async function Cart() {
@@ -29,7 +28,7 @@ export default async function Cart() {
                 <article className="flex justify-between gap-8 py-6 px-2">
                   <div className="flex flex-shrink-0  justify-center items-center gap-4">
                     <div>
-                      <Image
+                      <img
                         src={cartElement.product.image}
                         width={50}
                         height={50}
@@ -38,10 +37,9 @@ export default async function Cart() {
                     </div>
                     <div>
                       <header className="py-4">
-                        <p className="text-sm font-bold">
+                        <p className="text-sm font-bold max-w-sm overflow-hidden whitespace-nowrap text-ellipsis"> 
                           {cartElement.product.title}
                         </p>
-                        <p className="text-xs">2 Plazas</p>
                       </header>
                       <footer className="flex gap-4 text-xs  font-semibold text-[#3483fa]">
                         <button>Eliminar</button>
