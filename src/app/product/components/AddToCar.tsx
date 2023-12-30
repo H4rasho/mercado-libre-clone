@@ -1,11 +1,11 @@
 "use client";
-import { USER_ID } from "@/lib/db/constants";
+import { API_URL, USER_ID } from "@/lib/db/constants";
 import {IProduct} from "../types/product";
 
 export function AddToCard({ item }: { item: IProduct }) {
   const handleAddToCar = async () => {
     try {
-      await fetch("/cart/add", {
+      await fetch(`${API_URL}/cart`, {
         method: "POST",
         body: JSON.stringify({
           userId: USER_ID,
