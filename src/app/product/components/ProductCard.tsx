@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Product } from "@prisma/client";
 import Link from "next/link";
+import {IProduct} from "../types/product";
 
-export async function ProductCard({ product }: { product: Product }) {
+export async function ProductCard({ product }: { product: IProduct }) {
   return (
     <article className="bg-white w-[224px] rounded-s shadow-sm">
       <Link href={`/product/${product.id}`}>
