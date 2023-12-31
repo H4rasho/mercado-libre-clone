@@ -1,18 +1,18 @@
-import {USER_ID} from "@/lib/db/constants";
-import {kv} from "@vercel/kv";
-import {searchById} from "../product/service/search";
+import {USER_ID} from '@/lib/db/constants'
+import {kv} from '@vercel/kv'
+import {searchById} from '../product/service/search'
+import {UserCartActions} from './components/UserCartActions'
 
 export default async function Cart() {
-  const productsIds = await kv.hgetall(`cart-${USER_ID}`);
+  const productsIds = await kv.hgetall(`cart-${USER_ID}`)
 
-  if (!productsIds) return <p>No hay productos en el carrito</p>;
+  if (!productsIds) return <p>No hay productos en el carrito</p>
 
-  const cart = [];
+  const cart = []
   for (const [id, quantity] of Object.entries(productsIds)) {
-    const product = await searchById(id);
-    cart.push({ product, quantity });
+    const product = await searchById(id)
+    cart.push({product, quantity})
   }
-
 
   return (
     <section className="bg-white max-w-3xl rounded-sm">
@@ -22,7 +22,7 @@ export default async function Cart() {
       <div className="h-[1px] bg-gray-300 m-0 w-full"></div>
       <div>
         <ul>
-          {cart.map((cartElement) => {
+          {cart.map(cartElement => {
             return (
               <li key={cartElement.product.id}>
                 <article className="flex justify-between gap-8 py-6 px-2">
@@ -37,14 +37,12 @@ export default async function Cart() {
                     </div>
                     <div>
                       <header className="py-4">
-                        <p className="text-sm font-bold max-w-sm overflow-hidden whitespace-nowrap text-ellipsis"> 
+                        <p className="text-sm font-bold max-w-sm overflow-hidden whitespace-nowrap text-ellipsis">
                           {cartElement.product.title}
                         </p>
                       </header>
                       <footer className="flex gap-4 text-xs  font-semibold text-[#3483fa]">
-                        <button>Eliminar</button>
-                        <button>Modificar</button>
-                        <button>Comprar Ahora</button>
+                        <UserCartActions product={cartElement.product} />
                       </footer>
                     </div>
                   </div>
@@ -61,11 +59,11 @@ export default async function Cart() {
                 </article>
                 <div className="h-[1px] bg-gray-300 m-0 w-full"></div>
               </li>
-            );
+            )
           })}
         </ul>
       </div>
       <div></div>
     </section>
-  );
+  )
 }

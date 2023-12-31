@@ -1,12 +1,12 @@
-"use client";
-import { API_URL, USER_ID } from "@/lib/db/constants";
-import {IProduct} from "../types/product";
+'use client'
+import {API_URL, USER_ID} from '@/lib/db/constants'
+import {IProduct} from '../types/product'
 
-export function AddToCard({ item }: { item: IProduct }) {
+export function AddToCard({item}: {item: IProduct}) {
   const handleAddToCar = async () => {
     try {
       await fetch(`${API_URL}/cart`, {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify({
           userId: USER_ID,
           quantity: 1,
@@ -17,12 +17,12 @@ export function AddToCard({ item }: { item: IProduct }) {
             image: item.image,
           },
         }),
-      });
+      })
     } catch (error) {
-      console.error(error);
-      throw new Error("Error al agregar al carrito");
+      console.error(error)
+      throw new Error('Error al agregar al carrito')
     }
-  };
+  }
 
   return (
     <button
@@ -31,5 +31,5 @@ export function AddToCard({ item }: { item: IProduct }) {
     >
       Agregar al carrito
     </button>
-  );
+  )
 }
