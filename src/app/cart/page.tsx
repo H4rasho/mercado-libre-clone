@@ -32,7 +32,10 @@ export default async function Cart() {
                         src={cartElement.product.image}
                         width={50}
                         height={50}
-                        alt=""
+                        alt={
+                          cartElement.product.description ||
+                          cartElement.product.title
+                        }
                       />
                     </div>
                     <div>
