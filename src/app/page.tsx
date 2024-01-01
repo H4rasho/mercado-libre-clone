@@ -12,8 +12,6 @@ export default async function Index() {
         <h2 className="text-2xl py-4 text-left font-light text-gray-500">
           Basado en tu última Visita
         </h2>
-
-        {/* @ts-expect-error Server Component */}
         <ProductList products={[]} />
       </section>
     </>
