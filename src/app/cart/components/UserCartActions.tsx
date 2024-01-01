@@ -8,7 +8,7 @@ interface Props {
 
 export async function UserCartActions({product}: Props) {
   return (
-    <form>
+    <form className="flex gap-4 text-xs  font-semibold text-[#3483fa]">
       <button
         formAction={async () => {
           'use server'

@@ -39,12 +39,12 @@ export default async function Cart() {
                       />
                     </div>
                     <div>
-                      <header className="py-4">
-                        <p className="text-sm font-bold max-w-sm overflow-hidden whitespace-nowrap text-ellipsis">
+                      <header className="py-4 w-96">
+                        <p className="text-sm font-bold w-full overflow-hidden whitespace-nowrap text-ellipsis">
                           {cartElement.product.title}
                         </p>
                       </header>
-                      <footer className="flex gap-4 text-xs  font-semibold text-[#3483fa]">
+                      <footer>
                         <UserCartActions product={cartElement.product} />
                       </footer>
                     </div>
