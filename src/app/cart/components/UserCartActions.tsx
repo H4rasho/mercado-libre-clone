@@ -1,4 +1,4 @@
-import {removeItem} from '@/lib/actions/cart/cartActions'
+import {removeItemFromCart} from '@/lib/actions/cartActions'
 import {IProduct} from '@/app/product/types/product'
 import {revalidatePath} from 'next/cache'
 
@@ -12,7 +12,7 @@ export async function UserCartActions({product}: Props) {
       <button
         formAction={async () => {
           'use server'
-          await removeItem(product.id)
+          await removeItemFromCart(product.id)
           revalidatePath('/cart')
         }}
       >
