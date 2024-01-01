@@ -2,7 +2,7 @@ import {revalidatePath} from 'next/cache'
 import {redirect} from 'next/navigation'
 
 import {IProduct} from '../types/product'
-import {additemToCart} from '@/lib/actions/cartActions'
+import {addItemToCart} from '@/lib/actions/cartActions'
 
 export async function AddToCard({item}: {item: IProduct}) {
   return (
@@ -10,7 +10,7 @@ export async function AddToCard({item}: {item: IProduct}) {
       <button
         formAction={async () => {
           'use server'
-          additemToCart(item.id)
+          addItemToCart(item.id)
           revalidatePath('/cart')
           redirect('/cart')
         }}

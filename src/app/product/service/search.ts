@@ -62,6 +62,6 @@ export async function searchById(id: string): Promise<IProduct> {
       id: String(data.seller_id),
       name: String(data.seller_id),
     },
-    pictures: data.pictures.map(picture => picture.url),
+    pictures: data?.pictures?.map(picture => picture.url),
   }
 }
