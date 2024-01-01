@@ -14,7 +14,7 @@ export async function AddToCard({item}: {item: IProduct}) {
           revalidatePath('/cart')
           redirect('/cart')
         }}
-        className="py-3 px-6 bg-[#E3EDFB] text-sm font-semibold rounded-md text-[#3483fa]"
+        className="w-full py-3 px-6 bg-[#E3EDFB] text-sm font-semibold rounded-md text-[#3483fa]"
       >
         Agregar al carrito
       </button>
