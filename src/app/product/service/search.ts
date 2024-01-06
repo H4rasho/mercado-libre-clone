@@ -7,12 +7,16 @@ const API_URL = 'https://api.mercadolibre.com'
 export async function search({
   query,
   page,
+  limit = 30,
 }: {
   query: string
   page: number
+  limit?: number
 }): Promise<Search> {
   const response = await fetch(
-    `${API_URL}/sites/MLC/search?q=${query}&offset=${page ? page : 0}`
+    `${API_URL}/sites/MLC/search?q=${query}&limit=${limit}&offset=${
+      page ? page : 0
+    }`
   )
   if (!response.ok) throw new Error('Error fetching products')
   const data: SearchResponse = await response.json()

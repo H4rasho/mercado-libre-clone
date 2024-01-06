@@ -1,14 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
-import {IProduct} from "../types/product";
+import Link from 'next/link'
+import {IProduct} from '../types/product'
 
-export async function ProductCard({ product }: { product: IProduct }) {
+export async function ProductCard({product}: {product: IProduct}) {
   return (
     <article className="bg-white w-[224px] rounded-s shadow-sm">
       <Link href={`/product/${product.id}`}>
-        <Image
+        <img
           className="aspect-square object-contain"
-          src={product.image}
+          src={product.pictures?.at(0)}
           width={224}
           height={224}
           alt={product.description || product.title}
@@ -24,5 +23,5 @@ export async function ProductCard({ product }: { product: IProduct }) {
         </footer>
       </Link>
     </article>
-  );
+  )
 }
