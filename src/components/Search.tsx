@@ -1,11 +1,11 @@
-import {addRecoMmendationToLastSearch} from '@/lib/actions/recommendationActions'
+import {addRecommendationToLastSearch} from '@/lib/actions/recommendationActions'
 import {redirect} from 'next/navigation'
 
 export function Search() {
   const search = async (formData: FormData) => {
     'use server'
     const value = formData.get('search')
-    addRecoMmendationToLastSearch(value as string)
+    addRecommendationToLastSearch(value as string)
     redirect(`/results?query=${value}`)
   }
 

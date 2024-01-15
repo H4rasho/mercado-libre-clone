@@ -1,4 +1,4 @@
-export const revalidate = 0
+export const dynamic = 'auto'
 import Image from 'next/image'
 import banner from '../../public/banner.webp'
 import {ProductList} from '@/app/product/components/Product.List'
