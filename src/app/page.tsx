@@ -11,9 +11,9 @@ export default async function Index() {
     <>
       <Image src={banner} className="w-[1600] " alt="Banner" />
       <PaymentPromoSection />
-      <section className="">
-        <h2 className="text-2xl py-4 text-left font-light text-gray-500">
-          Basado en tu última Visita
+      <section className="bg-white rounded-md px-3 py-4 shadow-md">
+        <h2 className="text-xl  font-normal text-left  text-[rgb(0 0 0 / 90%)]">
+          Inspirado en lo último que viste
         </h2>
         <ProductList products={recomendations} />
       </section>

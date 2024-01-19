@@ -12,7 +12,7 @@ export async function getRecommendationFromLastSearch() {
   const results = await search({
     query: recommendationQueryList,
     page: 0,
-    limit: 5,
+    limit: 7,
   })
   const products = await Promise.all(
     results.results.map(async result => {
