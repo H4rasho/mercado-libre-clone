@@ -3,10 +3,10 @@ import {IProduct} from '../types/product'
 
 export async function ProductCard({product}: {product: IProduct}) {
   return (
-    <article className="bg-white w-[173px]">
+    <article className="bg-white w-full">
       <Link href={`/product/${product.id}`} className="hover:text-[#3483fa]">
         <img
-          className="aspect-square object-contain"
+          className="aspect-square object-contain mx-auto"
           src={product.pictures?.at(0)}
           width={150}
           height={150}
