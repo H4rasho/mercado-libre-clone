@@ -8,13 +8,13 @@ export function Card({
   title?: string
 }) {
   return (
-    <section className={`rounded-md px-3 py-4 shadow-md ${className}`}>
+    <article className={`rounded-md  shadow-md ${className}`}>
       {title && (
         <h2 className="text-xl  font-normal text-left  text-[rgb(0 0 0 / 90%)]">
           {title}
         </h2>
       )}
       {children}
-    </section>
+    </article>
   )
 }
