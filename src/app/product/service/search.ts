@@ -51,11 +51,13 @@ export async function search({
 
 export async function searchById(id: string): Promise<IProduct> {
   const response = await fetch(`${API_URL}/items/${id}`)
+
   const data = (await response.json()) as SearchByIDResponse
+  const description = await getDescriptionByItemId(id)
   return {
     id: data.id,
     title: data.title,
-    description: data.title,
+    description,
     price: data.price,
     originalPrice: Number(data.original_price),
     stock: 0,
@@ -67,5 +69,12 @@ export async function searchById(id: string): Promise<IProduct> {
       name: String(data.seller_id),
     },
     pictures: data?.pictures?.map(picture => picture.url),
+    descriptions: data?.descriptions,
   }
+}
+
+export async function getDescriptionByItemId(id: string): Promise<string> {
+  const response = await fetch(`${API_URL}/items/${id}/description`)
+  const {plain_text} = await response.json()
+  return plain_text
 }
