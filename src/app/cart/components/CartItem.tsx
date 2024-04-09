@@ -1,9 +1,9 @@
 import {IProduct} from '@/app/product/types/product'
-import {UserCartActions} from './UserCartActions'
+import {removeItemFromCart} from '@/lib/actions/cartActions'
 
 export function CartItem({product}: {product: IProduct}) {
   return (
-    <article className="flex justify-between gap-8 py-6 px-2">
+    <article className="flex justify-between gap-8 py-6 px-2 bg-white">
       <div className="flex flex-shrink-0  justify-center items-center gap-4">
         <div>
           <img
@@ -20,7 +20,17 @@ export function CartItem({product}: {product: IProduct}) {
             </p>
           </header>
           <footer>
-            <UserCartActions product={product} />
+            <form className="flex gap-4 text-xs  font-semibold text-[#3483fa]">
+              <button
+                formAction={async () => {
+                  await removeItemFromCart(product.id)
+                }}
+              >
+                Elimina
+              </button>
+              <button>Modificar</button>
+              <button>Comprar Ahora</button>
+            </form>
           </footer>
         </div>
       </div>
