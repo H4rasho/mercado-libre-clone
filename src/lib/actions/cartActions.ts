@@ -11,7 +11,22 @@ export async function removeItemFromCart(productId: IProduct['id']) {
 }
 
 export async function addItemToCart(productId: IProduct['id']) {
-  await kv.hset(`cart-${USER_ID}`, {
-    [productId]: 1,
-  })
+  try {
+    const response = await kv.hset(`cart-${USER_ID}`, {
+      [productId]: {
+        quantity: 1,
+        timestamp: Date.now(),
+      },
+    })
+    if (response === 0) {
+      throw new Error('Error al añadir el producto al carrito')
+    }
+    return {
+      ok: true,
+      message: 'Producto añadido al carrito',
+    }
+  } catch (error) {
+    console.error(error)
+    throw new Error('Error al añadir el producto al carrito')
+  }
 }

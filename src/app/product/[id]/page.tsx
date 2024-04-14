@@ -1,6 +1,8 @@
 import {ProductRating} from '@/app/product/components/ProductRating'
-import {AddToCard} from '../components/AddToCar'
 import {searchById} from '../service/search'
+import {addItemToCart} from '@/lib/actions/cartActions'
+import {revalidatePath} from 'next/cache'
+import {redirect} from 'next/navigation'
 
 export default async function Page({params}: {params: {id: string}}) {
   const {id} = params
@@ -40,7 +42,19 @@ export default async function Page({params}: {params: {id: string}}) {
                 <button className="py-3 px-6 bg-[#3483fa] font-semibold text-sm text-white rounded-md">
                   Comprar ahora
                 </button>
-                <AddToCard item={product} />
+                <form>
+                  <button
+                    formAction={async () => {
+                      'use server'
+                      await addItemToCart(product.id)
+                      revalidatePath('/cart')
+                      redirect('/cart')
+                    }}
+                    className="w-full py-3 px-6 bg-[#E3EDFB] text-sm font-semibold rounded-md text-[#3483fa]"
+                  >
+                    Agregar al carrito
+                  </button>
+                </form>
               </div>
             </section>
           </div>
