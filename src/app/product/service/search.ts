@@ -1,6 +1,6 @@
-import {type SearchResponse} from '../types/api-response'
-import {SearchByIDResponse} from '../types/api-serachById-response'
-import {Search, type IProduct} from '../types/product'
+import { type SearchResponse } from '../types/api-response'
+import { SearchByIDResponse } from '../types/api-serachById-response'
+import { Search, type IProduct } from '../types/product'
 
 const API_URL = 'https://api.mercadolibre.com'
 
@@ -14,8 +14,7 @@ export async function search({
   limit?: number
 }): Promise<Search> {
   const response = await fetch(
-    `${API_URL}/sites/MLC/search?q=${query}&limit=${limit}&offset=${
-      page ? page : 0
+    `${API_URL}/sites/MLC/search?q=${query}&limit=${limit}&offset=${page ? page : 0
     }`
   )
   if (!response.ok) throw new Error('Error fetching products')
@@ -75,6 +74,6 @@ export async function searchById(id: string): Promise<IProduct> {
 
 export async function getDescriptionByItemId(id: string): Promise<string> {
   const response = await fetch(`${API_URL}/items/${id}/description`)
-  const {plain_text} = await response.json()
+  const { plain_text } = await response.json()
   return plain_text
 }

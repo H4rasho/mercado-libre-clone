@@ -1,12 +1,13 @@
-import {ProductRating} from '@/app/product/components/ProductRating'
-import {searchById} from '../service/search'
-import {addItemToCart} from '@/lib/actions/cartActions'
-import {revalidatePath} from 'next/cache'
-import {redirect} from 'next/navigation'
+import { ProductRating } from "@/app/product/components/ProductRating";
+import { searchById } from "../service/search";
+import { addItemToCart } from "@/lib/actions/cartActions";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { ProductGalery } from "../components/ProductGalery";
 
-export default async function Page({params}: {params: {id: string}}) {
-  const {id} = params
-  const product = await searchById(id)
+export default async function Page({ params }: { params: { id: string } }) {
+  const { id } = params;
+  const product = await searchById(id);
 
   return (
     <div className="bg-white  p-4">
@@ -14,23 +15,15 @@ export default async function Page({params}: {params: {id: string}}) {
         <>
           <div className="flex justify-between">
             <section className="max-w-[821px]">
-              <div className="w-full mx-auto">
-                <img
-                  className="aspect-square object-contain mx-auto"
-                  src={product?.pictures?.at(0)}
-                  width={378}
-                  height={448}
-                  alt={product.description || product.title}
-                />
-              </div>
-              <h3 className="text-2xl pb-6">Descripción</h3>
+              <ProductGalery images={product.pictures} />
+              <h3 className="text-2xl pb-6 mt-11">Descripción</h3>
               <p className="text-paragraph text-xl">{product.description}</p>
             </section>
             <section className="flex flex-col gap-y-2 p-4 border rounded-md max-w-[350px]">
               <h1 className="text-xl font-medium">{product.title}</h1>
               <ProductRating rating={Number(product.stars)} />
               <p className="text-3xl ">{`$ ${Number(
-                product.price
+                product.price,
               ).toLocaleString()}`}</p>
               <p>
                 en
@@ -45,10 +38,10 @@ export default async function Page({params}: {params: {id: string}}) {
                 <form>
                   <button
                     formAction={async () => {
-                      'use server'
-                      await addItemToCart(product.id)
-                      revalidatePath('/cart')
-                      redirect('/cart')
+                      "use server";
+                      await addItemToCart(product.id);
+                      revalidatePath("/cart");
+                      redirect("/cart");
                     }}
                     className="w-full py-3 px-6 bg-[#E3EDFB] text-sm font-semibold rounded-md text-[#3483fa]"
                   >
@@ -61,5 +54,5 @@ export default async function Page({params}: {params: {id: string}}) {
         </>
       )}
     </div>
-  )
+  );
 }
