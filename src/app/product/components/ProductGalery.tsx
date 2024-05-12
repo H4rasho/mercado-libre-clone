@@ -2,7 +2,12 @@
 import { useState } from "react";
 
 const MAX_IMAGES_TO_SHOW = 8;
-export function ProductGalery({ images }: { images: string[] }) {
+export function ProductGalery({
+  images,
+}: {
+  images?: { src: string; description: string }[];
+}) {
+  if (!images) return;
   const [product, setPrudct] = useState(images[0]);
   const imagesToShow = images.slice(0, MAX_IMAGES_TO_SHOW);
   const hiddenImages = images.slice(MAX_IMAGES_TO_SHOW, -1);
@@ -17,8 +22,8 @@ export function ProductGalery({ images }: { images: string[] }) {
               onMouseOver={() => setPrudct(image)}
             >
               <img
-                src={image}
-                alt="Product"
+                src={image.src}
+                alt={image.description}
                 width={44}
                 height={44}
                 className="max-w-[44px] max-h-[44px] object-contain w-full h-full"
@@ -27,8 +32,8 @@ export function ProductGalery({ images }: { images: string[] }) {
           ) : (
             <button className="relative" onMouseOver={() => setPrudct(image)}>
               <img
-                src={image}
-                alt="Product"
+                src={image.src}
+                alt={image.description}
                 width={44}
                 height={44}
                 className="max-w-[44px] max-h-[44px] object-contain 
@@ -44,10 +49,10 @@ export function ProductGalery({ images }: { images: string[] }) {
       <div className="w-full m-auto h-full">
         <img
           className="aspect-square object-contain mx-auto"
-          src={product}
+          src={product.src}
           width={378}
           height={448}
-          alt={`Product`}
+          alt={product.description}
         />
       </div>
     </div>

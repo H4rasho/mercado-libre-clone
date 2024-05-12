@@ -15,7 +15,12 @@ export default async function Page({ params }: { params: { id: string } }) {
         <>
           <div className="flex justify-between">
             <section className="max-w-[821px]">
-              <ProductGalery images={product.pictures} />
+              <ProductGalery
+                images={product.pictures?.map((img) => ({
+                  src: img,
+                  alt: product.description,
+                }))}
+              />
               <h3 className="text-2xl pb-6 mt-11">Descripción</h3>
               <p className="text-paragraph text-xl">{product.description}</p>
             </section>
