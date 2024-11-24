@@ -5,12 +5,13 @@ const MAX_IMAGES_TO_SHOW = 8;
 export function ProductGalery({
   images,
 }: {
-  images?: { src: string; description: string }[];
+  images: { src: string; description: string }[];
 }) {
-  if (!images) return;
   const [product, setPrudct] = useState(images[0]);
   const imagesToShow = images.slice(0, MAX_IMAGES_TO_SHOW);
   const hiddenImages = images.slice(MAX_IMAGES_TO_SHOW, -1);
+
+  if (!images) return;
 
   return (
     <div className="flex ">
@@ -18,6 +19,7 @@ export function ProductGalery({
         {imagesToShow.map((image, index) =>
           index < MAX_IMAGES_TO_SHOW - 1 ? (
             <button
+              key={image.src}
               className="max-w-[44px] max-h-[44px] w-full h-full border  border-gray-300"
               onMouseOver={() => setPrudct(image)}
             >
@@ -30,7 +32,7 @@ export function ProductGalery({
               />
             </button>
           ) : (
-            <button className="relative" onMouseOver={() => setPrudct(image)}>
+            <button key={image.src} className="relative" onMouseOver={() => setPrudct(image)}>
               <img
                 src={image.src}
                 alt={image.description}
