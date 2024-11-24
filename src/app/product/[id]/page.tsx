@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="flex justify-between">
             <section className="max-w-[821px]">
               <ProductGalery
-                images={product.pictures?.map((img) => ({
+                images={product?.pictures?.map((img) => ({
                   src: img,
                   alt: product.description,
                 }))}

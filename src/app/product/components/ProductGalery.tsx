@@ -3,9 +3,9 @@ import { useState } from "react";
 
 const MAX_IMAGES_TO_SHOW = 8;
 export function ProductGalery({
-  images,
+  images = [],
 }: {
-  images: { src: string; description: string }[];
+  images?: { src: string; description: string }[] | undefined;
 }) {
   const [product, setPrudct] = useState(images[0]);
   const imagesToShow = images.slice(0, MAX_IMAGES_TO_SHOW);
