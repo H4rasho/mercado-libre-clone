@@ -11,7 +11,7 @@ export function ProductGalery({
   const imagesToShow = images.slice(0, MAX_IMAGES_TO_SHOW);
   const hiddenImages = images.slice(MAX_IMAGES_TO_SHOW, -1);
 
-  if (!images) return;
+  if (images.length === 0) return null;
 
   return (
     <div className="flex ">
